@@ -1,0 +1,1 @@
+/home/alvaro9rqc/.bashrc
