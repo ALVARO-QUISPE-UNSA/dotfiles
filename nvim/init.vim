@@ -66,6 +66,7 @@ Plug 'itchyny/lightline.vim'            " Para barra de estado
 Plug 'tpope/vim-fugitive'
 "Plug 'dense-analysis/ale'               " Algún análisis después
 Plug 'yggdroot/indentline'              " Para mostrar linea de indentar
+Plug 'mattn/emmet-vim'                        " para html
 call plug#end()
 
 colorscheme gruvbox                 " Escoger el tema
