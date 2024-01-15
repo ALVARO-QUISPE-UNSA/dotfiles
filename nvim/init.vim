@@ -1,19 +1,6 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim and sourced by
-" the call to :runtime you can find below.  If you wish to change any of those
-" settings, you should do it in this file (/etc/vim/vimrc), since debian.vim
-" will be overwritten everytime an upgrade of the vim packages is performed.
-" It is recommended to make changes after sourcing debian.vim since it alters
-" the value of the 'compatible' option.
-
-" runtime! debian.vim
-
-
-
-
-"Demás configuraciones
 "Aquí están las conguraciones desde git
 ru! defaults.vim                " Use Enhanced Vim defaults
-set mouse=a                     " Reset the mouse setting from defaults
+set mouse=a                     " Usar el mouse en varios modos
 aug vimStartup | au! | aug END  " Revert last positioned jump, as it is defined below
 let g:skip_defaults_vim = 1     " Do not source defaults.vim again (after loading this system vimrc)
 
@@ -22,7 +9,6 @@ set showmatch                   " automatically show matching brackets. works li
 set vb                          " turn on the "visual bell" - which is much quieter than the "audio blink"
 set laststatus=2                " make the last line where the status is two lines deep so you can see status always
 set showmode                    " show the current mode
-set clipboard=unnamed           " set clipboard to unnamed to access the system clipboard under windows
 set wildmode=list:longest,longest:full   " Better command line completion
 "----------------------------------------------------------------------------
 " Aquí estarán las configuraciones de mi Vim
@@ -35,7 +21,6 @@ set guicursor+=a:blinkon1
 set number
 set numberwidth=1
 set clipboard=unnamed           "Debería dejarme copiar texto de la manera usual
-set background=dark
 if has("syntax")                "sintaxis
   syntax on
 endif
@@ -44,15 +29,17 @@ set smartcase	             	" Do smart case matching
 set incsearch	            	" Incremental search
 set autowrite		            " Automatically save before commands like :next and :make
 set encoding=utf-8              
+set laststatus=2
 syntax enable
-
-
 " PLUGS---------------------------------------------------------------
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'morhetz/gruvbox'              " Tema
+so ~/.config/nvim/my-plugins.vim
+so ~/.config/nvim/maps.vim
+call plug#begin('~/.config/nvim/plugged/')
+Plug 'morhetz/gruvbox'                  " Tema
+" Plug 'folke/tokyonight.nvim'
+" Plug 'ghifarit53/tokyonight-vim'
 Plug 'shinchu/lightline-gruvbox.vim'    " Tema para la barra de estado
-Plug 'sheerun/vim-polyglot'             " Resaltado de sintaxys
+Plug 'sheerun/vim-polyglot'             " Mejor resaltado de sintaxys
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'        " Para buscar facil
 Plug 'christoomey/vim-tmux-navigator'   " Para oper tener pantalla partida
@@ -62,54 +49,29 @@ Plug 'tpope/vim-surround'               " Para encapsular variables
 Plug 'j-hui/vim-css-color'
 
 Plug 'maximbaz/lightline-ale'           " Para barra de abajo
-Plug 'itchyny/lightline.vim'            " Para barra de estado
+Plug 'itchyny/lightline.vim'            " Para colores barra de estado
+" Plug 'mengelbrecht/lightline-bufferline'
 Plug 'tpope/vim-fugitive'
-"Plug 'dense-analysis/ale'               " Algún análisis después
+"Plug 'dense-analysis/ale'              " Algún análisis después
 Plug 'yggdroot/indentline'              " Para mostrar linea de indentar
-Plug 'mattn/emmet-vim'                        " para html
+Plug 'mattn/emmet-vim'                  " para html
+"Plug 'vim-airline/vim-airline'          " Para barra airline
+"Plug 'vim-airline/vim-airline-themes'   " Para los temas de airline
 call plug#end()
+" --------------------------------------------------------------------
 
 colorscheme gruvbox                 " Escoger el tema
 let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
-let g:indentLine_char_list = ['│', '|']
-set laststatus=2
 set background=dark
 "set noshowmode
-"------------Para la rama de git
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
-"--------------------
+"set termguicolors
+"let g:tokyonight_style = 'night' " available: night, storm
+"let g:tokyonight_enable_italic = 1
+"colorscheme tokyonight
+"--------------------Teclas
 
 let NERDTreeQuitOnOpen=1            " Para cerrar nerdtree
-let mapleader=" "
 
-nmap <Leader>nt :NERDTreeFind<CR>  
-nmap <Leader>w :w<CR>
-nmap <Leader>q :q<CR>
-nmap <Leader>h :tabprevious<CR>
-nmap <Leader>l :tabnext<CR>
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-
-" VN
-vnoremap <C-c> "+y             " Para que se copie el texto
-" nnoremap <C-x> "+x            Supuestamente en el modo normal
-vnoremap <C-x> "+x                  " Para que se corte el texto
-
-" N
-nnoremap <Leader>> 10<C-w>>
-nnoremap <Leader>< 10<C-w><
-nnoremap <Leader>+ 2<C-w>+
-nnoremap <Leader>- 2<C-w>-
 
 "---------------------------------------------------------------------
 " Show EOL type and last modified timestamp, right after the filename
@@ -190,7 +152,6 @@ endif " has("autocmd")
 " differently from regular Vi. They are highly recommended though.
 "set ignorecase		" Do case insensitive matching
 "set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
