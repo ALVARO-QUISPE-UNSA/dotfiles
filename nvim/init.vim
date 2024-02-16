@@ -57,12 +57,16 @@ Plug 'yggdroot/indentline'              " Para mostrar linea de indentar
 Plug 'mattn/emmet-vim'                  " para html
 "Plug 'vim-airline/vim-airline'          " Para barra airline
 "Plug 'vim-airline/vim-airline-themes'   " Para los temas de airline
+Plug 'tibabit/vim-templates'            " Para las plantillas
+"
 call plug#end()
 " --------------------------------------------------------------------
 
-colorscheme gruvbox                 " Escoger el tema
 let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
 set background=dark
+colorscheme gruvbox                 " Escoger el tema
+hi Normal guibg=NONE ctermbg=NONE   " NO tener espefício en GUI ni terminales 256
+" CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]
 "set noshowmode
 "set termguicolors
 "let g:tokyonight_style = 'night' " available: night, storm

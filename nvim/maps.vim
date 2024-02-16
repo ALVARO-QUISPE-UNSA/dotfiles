@@ -10,6 +10,7 @@ nmap <Leader>q :q<CR>
 nmap <Leader>h :tabprevious<CR>     "Para regresar a otro tab
 nmap <Leader>l :tabnext<CR>         "para ir a otro tab
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
+nmap <Leader>mt :call MyTemplateInit(input("My template :D "))<CR>
 
 " VN
 vnoremap <C-c> "+y              " Para que se copie el texto
