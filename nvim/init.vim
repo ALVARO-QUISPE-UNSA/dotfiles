@@ -14,7 +14,9 @@ set wildmode=list:longest,longest:full   " Better command line completion
 " Aquí estarán las configuraciones de mi Vim
 set expandtab                   " Usar espacios
 set tabstop=2                   " Establece la cantidad de espacios que representa un carácter de tabulación.
-"set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
+set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
+set autoindent
+set softtabstop=2
 set relativenumber 
 set guicursor=n-v-c:block
 set guicursor+=a:blinkon1
@@ -58,6 +60,8 @@ Plug 'mattn/emmet-vim'                  " para html
 "Plug 'vim-airline/vim-airline'          " Para barra airline
 "Plug 'vim-airline/vim-airline-themes'   " Para los temas de airline
 Plug 'tibabit/vim-templates'            " Para las plantillas
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "
 call plug#end()
 " --------------------------------------------------------------------
@@ -67,6 +71,7 @@ set background=dark
 colorscheme gruvbox                 " Escoger el tema
 hi Normal guibg=NONE ctermbg=NONE   " NO tener espefício en GUI ni terminales 256
 " CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]
+"let g:gruvbox_italic=1            " Para italic"
 "set noshowmode
 "set termguicolors
 "let g:tokyonight_style = 'night' " available: night, storm
