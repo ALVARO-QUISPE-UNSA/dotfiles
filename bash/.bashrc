@@ -123,4 +123,4 @@ if ! shopt -oq posix; then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export PATH=$PATH:/home/alvaro9rqc/nodejs/bin:/home/alvaro9rqc/.scripts/
+export PATH=$PATH:/home/alvaro9rqc/nodejs/bin:/home/alvaro9rqc/.scripts/:/home/alvaro9rqc/.cargo/bin
