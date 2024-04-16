@@ -68,8 +68,9 @@ Plug 'tibabit/vim-templates'            " Para las plantillas
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'             " plug para los íconos
-" Plug 'junegunn/goyo.vim'                " Plug to read very well
-"
+Plug 'junegunn/goyo.vim'                " Plug to read very well
+Plug 'williamboman/mason.nvim'
+
 call plug#end()
 " --------------------------------------------------------------------
 
@@ -87,8 +88,6 @@ hi Normal guibg=NONE ctermbg=NONE   " NO tener espefício en GUI ni terminales 2
 "--------------------Teclas
 
 let NERDTreeQuitOnOpen=1            " Para cerrar nerdtree
-
-
 "---------------------------------------------------------------------
 " Show EOL type and last modified timestamp, right after the filename
 set statusline=%f               " filename relative to current $PWD
