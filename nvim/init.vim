@@ -15,6 +15,8 @@ set wildmode=list:longest,longest:full   " Better command line completion
 set expandtab                   " Usar espacios
 set tabstop=2                   " Establece la cantidad de espacios que representa un carácter de tabulación.
 set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
+" OK, in python files I need to change in python.vim in
+" /usr/share/nvim/runtime/ftplugin/python.vim
 set autoindent
 set softtabstop=2
 set relativenumber 
@@ -32,6 +34,9 @@ set incsearch	            	" Incremental search
 set autowrite		            " Automatically save before commands like :next and :make
 set encoding=utf-8              
 set laststatus=2
+" autocmd FileType python setlocal shiftwidth=2 tabstop=2
+" autocmd FileType python echom "Se ejecutó el autocmd para Python"
+" autocmd FileType python setlocal shiftwidth=2
 syntax enable
 " PLUGS---------------------------------------------------------------
 so ~/.config/nvim/my-plugins.vim
@@ -62,6 +67,8 @@ Plug 'mattn/emmet-vim'                  " para html
 Plug 'tibabit/vim-templates'            " Para las plantillas
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'             " plug para los íconos
+" Plug 'junegunn/goyo.vim'                " Plug to read very well
 "
 call plug#end()
 " --------------------------------------------------------------------
