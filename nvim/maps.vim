@@ -18,6 +18,7 @@ nmap <Leader>mt :call MyTemplateInit(input("My template :D "))<CR>
 nmap <Leader>ff :Files<CR> 
 nmap <Leader>fg :GFiles<CR> 
 nmap <Leader>fb :Buffers<CR> 
+nmap <Leader>ag :Ag<CR> 
 nmap <Leader>g :GFiles?<CR> 
 nmap <Leader>c :Commits<CR> 
 
