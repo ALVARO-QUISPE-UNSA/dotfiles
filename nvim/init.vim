@@ -34,9 +34,6 @@ set incsearch	            	" Incremental search
 set autowrite		            " Automatically save before commands like :next and :make
 set encoding=utf-8              
 set laststatus=2
-" autocmd FileType python setlocal shiftwidth=2 tabstop=2
-" autocmd FileType python echom "Se ejecutó el autocmd para Python"
-" autocmd FileType python setlocal shiftwidth=2
 syntax enable
 " PLUGS---------------------------------------------------------------
 so ~/.config/nvim/my-plugins.vim
@@ -67,9 +64,23 @@ Plug 'mattn/emmet-vim'                  " para html
 Plug 'tibabit/vim-templates'            " Para las plantillas
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'ryanoasis/vim-devicons'             " plug para los íconos
+Plug 'ryanoasis/vim-devicons'             " plug para los íconos -- es lento
 Plug 'junegunn/goyo.vim'                " Plug to read very well
 Plug 'williamboman/mason.nvim'
+
+
+" PENDIENTES POR VER
+" Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
+" Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool para verificar gramática
+" https://neuron.zettel.page/zettelkasten -> para tomar notas
+" Plug 'elzr/vim-json'                   " Better JSON support
+" Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
+" Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
+" Plug 'chrisbra/colorizer'              " Colorize color codes
+
+
+
+
 
 call plug#end()
 " --------------------------------------------------------------------
@@ -77,7 +88,8 @@ call plug#end()
 let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
 set background=dark
 colorscheme gruvbox                 " Escoger el tema
-hi Normal guibg=NONE ctermbg=NONE   " NO tener espefício en GUI ni terminales 256
+" NO tener espefício en GUI ni terminales 256
+hi Normal guibg=NONE ctermbg=NONE   
 " CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]
 "let g:gruvbox_italic=1            " Para italic"
 "set noshowmode
