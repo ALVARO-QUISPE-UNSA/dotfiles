@@ -67,6 +67,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'             " plug para los íconos -- es lento
 Plug 'junegunn/goyo.vim'                " Plug to read very well
 Plug 'williamboman/mason.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 
 
 " PENDIENTES POR VER
