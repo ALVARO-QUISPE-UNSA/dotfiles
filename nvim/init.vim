@@ -19,6 +19,7 @@ set shiftwidth=2                " Define la cantidad de espacios para cada nivel
 " /usr/share/nvim/runtime/ftplugin/python.vim
 set autoindent
 set softtabstop=2
+set spelllang=es
 set relativenumber 
 set guicursor=n-v-c:block
 set guicursor+=a:blinkon1
@@ -66,7 +67,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'             " plug para los íconos -- es lento
 Plug 'junegunn/goyo.vim'                " Plug to read very well
-Plug 'williamboman/mason.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 
 
