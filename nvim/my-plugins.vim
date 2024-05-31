@@ -4,7 +4,7 @@ let g:indentLine_char_list = ['│', '|']
 " Para cierre de etiquetas html
 let g:closetag_shortcut = '>'
 " Para barra de estado de maximbaz
-let g:lightline = {}
+"let g:lightline = {}
 " Para rama main en barra de estado-----------------
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
@@ -26,3 +26,10 @@ function! MyTemplateInit(arg)
 endfunction
 
 
+" para lo íconos
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
+" para que nerd tree ignore archivos
+let NERDTreeIgnore = ['\.out$', '\.class$']
+"let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+let g:NERDTreeDirArrowExpandable = " "
+let g:NERDTreeDirArrowCollapsible = " "

@@ -1,6 +1,8 @@
 #include <bits/stdc++.h> 
 using namespace std;
 int main () {
+  sync_with_stdio(false);
+  cin.tie(NULL);
    {{CURSOR}}
   return 0;
 }

@@ -15,6 +15,8 @@ set wildmode=list:longest,longest:full   " Better command line completion
 set expandtab                   " Usar espacios
 set tabstop=2                   " Establece la cantidad de espacios que representa un carácter de tabulación.
 set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
+set wildignore+=*.class
+set wildignore+=*.out
 " OK, in python files I need to change in python.vim in
 " /usr/share/nvim/runtime/ftplugin/python.vim
 set autoindent
@@ -45,7 +47,7 @@ Plug 'morhetz/gruvbox'                  " Tema
 " Plug 'ghifarit53/tokyonight-vim'
 Plug 'shinchu/lightline-gruvbox.vim'    " Tema para la barra de estado
 Plug 'sheerun/vim-polyglot'             " Mejor resaltado de sintaxys
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'        " Para buscar facil
 Plug 'christoomey/vim-tmux-navigator'   " Para oper tener pantalla partida
 Plug 'jiangmiao/auto-pairs'             " Para que se cierren los paréntesis 
@@ -69,9 +71,10 @@ Plug 'ryanoasis/vim-devicons'             " plug para los íconos -- es lento
 Plug 'junegunn/goyo.vim'                " Plug to read very well
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 
+Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
+" Plug 'github/copilot.vim'             " Copilot                    
 
 " PENDIENTES POR VER
-" Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
 " Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool para verificar gramática
 " https://neuron.zettel.page/zettelkasten -> para tomar notas
 " Plug 'elzr/vim-json'                   " Better JSON support
@@ -87,8 +90,13 @@ call plug#end()
 " --------------------------------------------------------------------
 
 let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
+
+
+"let g:gruvbox_italic=1
 set background=dark
 colorscheme gruvbox                 " Escoger el tema
+
+
 " NO tener espefício en GUI ni terminales 256
 hi Normal guibg=NONE ctermbg=NONE   
 " CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]

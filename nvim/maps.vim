@@ -1,10 +1,12 @@
+"PENDIENTE:
+"Poner en vez de tabnext, combinación de gt para poder poner números
 "EMMET VIM
 let g:user_emmet_mode='nv'           "only enable normal mode functions.
 let g:user_emmet_leader_key='<Space>y'
 
 let mapleader=" "
 
-nmap <Leader>nt :NERDTreeFind<CR>  
+nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 "Para regresar a otro tab:
@@ -21,6 +23,7 @@ nmap <Leader>fb :Buffers<CR>
 nmap <Leader>ag :Ag<CR> 
 nmap <Leader>g :GFiles?<CR> 
 nmap <Leader>c :Commits<CR> 
+nmap <Leader>no :call EnableBreakIndentation()<CR>
 
 " VN
 " Para que se copie el texto
@@ -29,10 +32,14 @@ vnoremap <Leader>yy "+y
 "vnoremap <C-x> "+x                  " Para que se corte el texto
 
 " N
-nnoremap <Leader>> 6<C-w>>      " aumentar de tamaño vista
-nnoremap <Leader>< 6<C-w><      "  para disminuir
-nnoremap <Leader>+ 2<C-w>+       " para aumentar tamaño
-nnoremap <Leader>- 2<C-w>-       " para disminuir
+"" aumentar de tamaño vista
+nnoremap <Leader>> 6<C-w>>
+"  para disminuir
+nnoremap <Leader>< 6<C-w><
+" para aumentar tamaño
+nnoremap <Leader>+ 2<C-w>+
+" para disminuir
+nnoremap <Leader>- 2<C-w>-
 
 " Path completion with custom source command
 " inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
@@ -66,3 +73,14 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
+
+
+" Define a function to enable linebreak, breakindent, and breakindentopt
+function! EnableBreakIndentation()
+  set linebreak
+  set breakindent
+  set breakindentopt=shift:2
+endfunction
+
+" Map the function to a command for easy access
+"command! Nt call EnableBreakIndentation()
