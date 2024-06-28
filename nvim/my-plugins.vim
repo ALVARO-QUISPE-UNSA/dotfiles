@@ -33,3 +33,10 @@ let NERDTreeIgnore = ['\.out$', '\.class$']
 "let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let g:NERDTreeDirArrowExpandable = " "
 let g:NERDTreeDirArrowCollapsible = " "
+"Para gramática
+"let g:grammarous#default_fc_langtool_level = 'default'
+" let g:grammarous#jar_url = 'https://www.languagetool.org/download/LanguageTool-5.9.zip'
+
+" Para json
+" Activa el resaltado extendido
+let g:vim_json_syntax_highlight = 1

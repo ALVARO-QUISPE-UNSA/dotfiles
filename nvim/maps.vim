@@ -1,8 +1,7 @@
 "PENDIENTE:
 "Poner en vez de tabnext, combinación de gt para poder poner números
 "EMMET VIM
-let g:user_emmet_mode='nv'           "only enable normal mode functions.
-let g:user_emmet_leader_key='<Space>y'
+let g:user_emmet_leader_key='<A-y>'
 
 let mapleader=" "
 
@@ -10,11 +9,15 @@ nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 "Para regresar a otro tab:
-nmap <Leader>h :tabprevious<CR>
+nmap <Leader>h gT<CR>
 "para ir a otro tab:
-nmap <Leader>l :tabnext<CR>
+nmap <Leader>l gt<CR>
 "para abrir nuevo tab:
-nmap <Leader>t :tabe 
+nmap <Leader>ta :tabe 
+"Para el tabgar
+nmap <Leader>tb :Tagbar<CR>
+nmap <Leader>to :TagbarOpenAutoClose<CR>
+"end tabgar
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
 nmap <Leader>mt :call MyTemplateInit(input("My template :D "))<CR>
 nmap <Leader>ff :Files<CR> 
@@ -23,15 +26,10 @@ nmap <Leader>fb :Buffers<CR>
 nmap <Leader>ag :Ag<CR> 
 nmap <Leader>g :GFiles?<CR> 
 nmap <Leader>c :Commits<CR> 
-nmap <Leader>no :call EnableBreakIndentation()<CR>
 
 " VN
 " Para que se copie el texto
 vnoremap <Leader>yy "+y
-" nnoremap <C-x> "+x            Supuestamente en el modo normal
-"vnoremap <C-x> "+x                  " Para que se corte el texto
-
-" N
 "" aumentar de tamaño vista
 nnoremap <Leader>> 6<C-w>>
 "  para disminuir
@@ -54,6 +52,10 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'window': { 'width': 0.2, 'hei
 
 
 " coc:
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
@@ -75,12 +77,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 
-" Define a function to enable linebreak, breakindent, and breakindentopt
-function! EnableBreakIndentation()
-  set linebreak
-  set breakindent
-  set breakindentopt=shift:2
-endfunction
 
 " Map the function to a command for easy access
 "command! Nt call EnableBreakIndentation()

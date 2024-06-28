@@ -21,6 +21,9 @@ set wildignore+=*.out
 " /usr/share/nvim/runtime/ftplugin/python.vim
 set autoindent
 set softtabstop=2
+set linebreak
+set breakindent
+set breakindentopt=shift:2
 set spelllang=es
 set relativenumber 
 set guicursor=n-v-c:block
@@ -72,13 +75,17 @@ Plug 'junegunn/goyo.vim'                " Plug to read very well
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 
 Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
+Plug 'aquach/vim-http-client'         " Solicitud http
+Plug 'elzr/vim-json'
+
+" PROBAR: https://github.com/aquach/vim-http-client
+"Plug 'dpelle/vim-LanguageTool'
+" Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool para verificar gramática
 " Plug 'github/copilot.vim'             " Copilot                    
 
 " PENDIENTES POR VER
-" Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool para verificar gramática
 " https://neuron.zettel.page/zettelkasten -> para tomar notas
-" Plug 'elzr/vim-json'                   " Better JSON support
-" Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
+Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
 " Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
 " Plug 'chrisbra/colorizer'              " Colorize color codes
 
@@ -95,12 +102,18 @@ let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
 "let g:gruvbox_italic=1
 set background=dark
 colorscheme gruvbox                 " Escoger el tema
+"                                 amari  anara                 
+let g:rainbow_ctermfgs = ['red', '214', '208', 'white']
+let g:rainbow_chars = ['[', ']', '(', ')', '{', '}', '@']
+
+au FileType c,cpp,objc,javascript,java call rainbow#load()
+
 
 
 " NO tener espefício en GUI ni terminales 256
 hi Normal guibg=NONE ctermbg=NONE   
 " CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]
-"let g:gruvbox_italic=1            " Para italic"
+"let g:gruvbox_italic=1            " Para italic
 "set noshowmode
 "set termguicolors
 "let g:tokyonight_style = 'night' " available: night, storm
