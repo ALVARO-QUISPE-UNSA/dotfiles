@@ -28,7 +28,7 @@ nmap <Leader>gf :GFiles?<CR>
 nmap <Leader>c :Commits<CR> 
 
 "Vim fugitive
-nmap <Leader>G :G<CR> 
+nmap <Leader>gg :G<CR> 
 nmap <Leader>ga :Gwrite<CR> 
 nmap <Leader>gr :Git restore --staged %<CR> 
 nmap <Leader>gc :Git commit<CR> 
