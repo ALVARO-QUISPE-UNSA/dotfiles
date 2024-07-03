@@ -78,9 +78,7 @@ Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métod
 Plug 'aquach/vim-http-client'         " Solicitud http
 Plug 'elzr/vim-json'
 
-" PROBAR: https://github.com/aquach/vim-http-client
 "Plug 'dpelle/vim-LanguageTool'
-" Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool para verificar gramática
 " Plug 'github/copilot.vim'             " Copilot                    
 
 " PENDIENTES POR VER
