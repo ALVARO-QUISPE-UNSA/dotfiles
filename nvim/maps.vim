@@ -9,9 +9,9 @@ nmap <Leader>nt :NERDTreeFind<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>q :q<CR>
 "Para regresar a otro tab:
-nmap <Leader>h gT<CR>
+nmap <Leader>h gT
 "para ir a otro tab:
-nmap <Leader>l gt<CR>
+nmap <Leader>l gt
 "para abrir nuevo tab:
 nmap <Leader>ta :tabe 
 "Para el tabgar
@@ -24,9 +24,15 @@ nmap <Leader>ff :Files<CR>
 nmap <Leader>fg :GFiles<CR> 
 nmap <Leader>fb :Buffers<CR> 
 nmap <Leader>ag :Ag<CR> 
-nmap <Leader>g :GFiles?<CR> 
+nmap <Leader>gf :GFiles?<CR> 
 nmap <Leader>c :Commits<CR> 
 
+"Vim fugitive
+nmap <Leader>G :G<CR> 
+nmap <Leader>ga :Gwrite<CR> 
+nmap <Leader>gr :Git restore --staged %<CR> 
+nmap <Leader>gc :Git commit<CR> 
+"
 " VN
 " Para que se copie el texto
 vnoremap <Leader>yy "+y
