@@ -17,5 +17,19 @@ wget --no-check-certificate https://ftp.vim.org/vim/runtime/spell/es.utf-8.sug
 # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 # Te descarga un paquete de git hub
 
+# para lo de tag
+# sudo apt-get install exuberant-ctags
+
 # support
 # npm install -g neovim
+#
+# Para bonito json
+# sudo apt install jq
+#
+# para compulador de c
+# sudo apt-get install clangd
+#
+# para lsp arduino
+# go install github.com/arduino/arduino-language-server@latest
+
+

@@ -1,7 +1,7 @@
 "PENDIENTE:
 "Poner en vez de tabnext, combinación de gt para poder poner números
 "EMMET VIM
-let g:user_emmet_leader_key='<A-y>'
+let g:user_emmet_leader_key='<A-e>'
 
 let mapleader=" "
 
@@ -20,23 +20,24 @@ nmap <Leader>to :TagbarOpenAutoClose<CR>
 "end tabgar
 nmap <Leader>s <Plug>(easymotion-overwin-f2)
 nmap <Leader>mt :call MyTemplateInit(input("My template :D "))<CR>
-nmap <Leader>ff :Files<CR> 
+nmap <Leader>ff :Files<CR>
 nmap <Leader>fg :GFiles<CR> 
 nmap <Leader>fb :Buffers<CR> 
 nmap <Leader>ag :Ag<CR> 
 nmap <Leader>gf :GFiles?<CR> 
-nmap <Leader>c :Commits<CR> 
+nmap <Leader>cc :Commits<CR> 
 
 "Vim fugitive
 nmap <Leader>gg :G<CR> 
-nmap <Leader>ga :Gwrite<CR> 
+nmap <Leader>ga :Gwrite<CR>
 nmap <Leader>gr :Git restore --staged %<CR> 
 nmap <Leader>gc :Git commit<CR> 
 "
 " VN
 " Para que se copie el texto
-vnoremap <Leader>yy "+y
+vnoremap <Leader>y "+y
 "" aumentar de tamaño vista
+nnoremap <Leader>yy "+yy
 nnoremap <Leader>> 6<C-w>>
 "  para disminuir
 nnoremap <Leader>< 6<C-w><
@@ -44,6 +45,11 @@ nnoremap <Leader>< 6<C-w><
 nnoremap <Leader>+ 2<C-w>+
 " para disminuir
 nnoremap <Leader>- 2<C-w>-
+" para coc
+nnoremap <Leader>cd <Plug>(coc-definition)
+nnoremap <Leader>cy <Plug>(coc-type-definition)
+nnoremap <Leader>ci <Plug>(coc-implementation)
+nnoremap <Leader>cr <Plug>(coc-references)
 
 " Path completion with custom source command
 " inoremap <expr> <c-x><c-f> fzf#vim#complete#path('fd')
@@ -70,8 +76,14 @@ inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<c-r>=coc#on_enter()\<CR>"
-
+                              \: "\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use <c-space> to trigger completion
+"  if has('nvim')
+"    inoremap <silent><expr> <c-space> coc#refresh()
+"  else
+"    inoremap <silent><expr> <c-@> coc#refresh()
+"  endif
+"  
 " Remap <C-f> and <C-b> to scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
@@ -82,6 +94,8 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 
 " Map the function to a command for easy access

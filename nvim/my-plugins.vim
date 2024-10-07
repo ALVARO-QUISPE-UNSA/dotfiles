@@ -38,3 +38,4 @@ let g:NERDTreeDirArrowCollapsible = " "
 " Para json
 " Activa el resaltado extendido
 let g:vim_json_syntax_highlight = 1
+

@@ -59,6 +59,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='\[\033[01;31m\]>\[\033[01;34m\]>\[\033[01;33m\]>\[\033[01;32m\] \u@\h\[\033[01;31m\]$(git_branch=$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2); if [ -n "$git_branch" ]; then echo "[$git_branch]"; fi)\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;32m\]\n$\[\033[00m\] '
+    #PS1='\[\033[01;31m\]>\[\033[01;34m\]>\[\033[01;33m\]> \033[01;31m\]$(git_branch=$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2); if [ -n "$git_branch" ]; then echo "[$git_branch]"; fi)\[\033[01;34m\]\w\[\033[01;32m\]\n$\[\033[00m\] '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]>\[\033[01;34m\]>\[\033[01;33m\]>\[\033[01;32m\] \u@\h\[\033[01;31m\]$(git_branch=$(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2); if [ -n "$git_branch" ]; then echo "[$git_branch]"; fi)\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;32m\]\n$\[\033[00m\] '
 
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -96,6 +97,14 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+# mis alias
+alias okular='flatpak run org.kde.okular'
+alias vim='nvim'
+alias ga='git add'
+alias gc='git commit -m'
+alias gra='git log --all --graph --decorate --oneline'
+alias gst='git status'
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -124,3 +133,9 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export PATH=$PATH:/home/alvaro9rqc/nodejs/bin:/home/alvaro9rqc/.scripts/:/home/alvaro9rqc/.cargo/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/home/alvaro9rqc/.arduino15/bin
+
+# Turso
+export PATH="$PATH:/home/alvaro9rqc/.turso"
+source ~/.arduino-cli-completion.bash

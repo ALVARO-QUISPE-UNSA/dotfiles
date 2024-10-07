@@ -14,13 +14,20 @@ set wildmode=list:longest,longest:full   " Better command line completion
 " Aquí estarán las configuraciones de mi Vim
 set expandtab                   " Usar espacios
 set tabstop=2                   " Establece la cantidad de espacios que representa un carácter de tabulación.
-set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
 set wildignore+=*.class
 set wildignore+=*.out
 " OK, in python files I need to change in python.vim in
 " /usr/share/nvim/runtime/ftplugin/python.vim
 set autoindent
 set softtabstop=2
+set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
+
+
+"augroup markdown
+"  autocmd!
+"  autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
+"augroup END
+
 set linebreak
 set breakindent
 set breakindentopt=shift:2
@@ -45,10 +52,11 @@ syntax enable
 so ~/.config/nvim/my-plugins.vim
 so ~/.config/nvim/maps.vim
 call plug#begin('~/.config/nvim/plugged/')
-Plug 'morhetz/gruvbox'                  " Tema
+"Plug 'morhetz/gruvbox'                  " Tema
 " Plug 'folke/tokyonight.nvim'
 " Plug 'ghifarit53/tokyonight-vim'
 Plug 'shinchu/lightline-gruvbox.vim'    " Tema para la barra de estado
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'sheerun/vim-polyglot'             " Mejor resaltado de sintaxys
 Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'        " Para buscar facil
@@ -77,14 +85,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
 Plug 'aquach/vim-http-client'         " Solicitud http
 Plug 'elzr/vim-json'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'HiPhish/rainbow-delimiters.nvim' 
 "Plug 'dpelle/vim-LanguageTool'
 " Plug 'github/copilot.vim'             " Copilot                    
 
 " PENDIENTES POR VER
 " https://neuron.zettel.page/zettelkasten -> para tomar notas
-Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
-" Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
+"" Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
 " Plug 'chrisbra/colorizer'              " Colorize color codes
 
 
@@ -94,18 +103,29 @@ Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
 call plug#end()
 " --------------------------------------------------------------------
 
-let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
+"let g:gruvbox_contrast_dark= "hard" " Ponerle oscuro al tema
+"set background=dark
+"colorscheme gruvbox                 " Escoger el tema
 
+set background=dark " or light if you want light mode
+colorscheme gruvbox
 
 "let g:gruvbox_italic=1
-set background=dark
-colorscheme gruvbox                 " Escoger el tema
-"                                 amari  anara                 
-let g:rainbow_ctermfgs = ['red', '214', '208', 'white']
-let g:rainbow_chars = ['[', ']', '(', ')', '{', '}', '@']
-
-au FileType c,cpp,objc,javascript,java call rainbow#load()
-
+"au FileType c,cpp,objc,javascript,java call rainbow#load()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,              -- false deshabilita toda la extensión
+    -- disable = { "c", "rust" },  -- lista de lenguajes a deshabilitar
+  },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
+  -- Otras configuraciones adicionales si es necesario
+}
+EOF
 
 
 " NO tener espefício en GUI ni terminales 256
