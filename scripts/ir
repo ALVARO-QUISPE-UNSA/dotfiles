@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Array con los directorios a ignorar
+IGNORE_DIRS=(
+    "node_modules"
+    ".cache"
+    "vendor"
+    "dist"
+    "build"
+    ".git"
+    ".config"
+    "logs"
+    ".matlab"
+    ".local"
+    "__pycache__"
+    "R"
+    "nodejs"
+)
+
+# Construir el comando find dinámicamente
+build_find_command() {
+    local exclude_pattern=""
+    for dir in "${IGNORE_DIRS[@]}"; do
+        exclude_pattern+=" -not -path './$dir/*'"
+        exclude_pattern+=" -not -path '*/$dir/*'"
+    done
+    echo "$exclude_pattern"
+}
+
+# Usar la función para crear el comando
+#EXCLUDES=$(build_find_command)
+
+# Ejecutar find con exclusiones y usar fzf para seleccionar un directorio
+DIR=$(find . -maxdepth 10 -type d $EXCLUDES -not -path '*/.*' -not -path "*/nodejs/*" -not -path "*/node_modules/*" -print| fzf)
+#DIR=$(find . -maxdepth 10 -type d $EXCLUDES -not -path '*/.*' -not -path "*/~/R/*" | fzf)
+
+ #Si un directorio es seleccionado, cambiar a él
+if [[ -n "$DIR" ]]; then
+    cd "$DIR" || exit
+    echo "Cambiado a: $DIR"
+    ls 
+else
+    echo "No se seleccionó ningún directorio."
+fi
+

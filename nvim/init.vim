@@ -22,12 +22,6 @@ set autoindent
 set softtabstop=2
 set shiftwidth=2                " Define la cantidad de espacios para cada nivel de indentación.
 
-
-"augroup markdown
-"  autocmd!
-"  autocmd FileType markdown setlocal tabstop=2 shiftwidth=2 softtabstop=2
-"augroup END
-
 set linebreak
 set breakindent
 set breakindentopt=shift:2
@@ -82,12 +76,14 @@ Plug 'ryanoasis/vim-devicons'             " plug para los íconos -- es lento
 Plug 'junegunn/goyo.vim'                " Plug to read very well
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " coc to semantic support
 
-Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
+"Plug 'majutsushi/tagbar'              " Pane with tags para 'resumir' los métodos
+Plug 'preservim/tagbar'              " Pane with tags para 'resumir' los métodos, es el mismo
 Plug 'aquach/vim-http-client'         " Solicitud http
-Plug 'elzr/vim-json'
+"Plug 'elzr/vim-json'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'HiPhish/rainbow-delimiters.nvim' 
+"Plug 'SirVer/ultisnips'                 " Para snipets, pero no usar con virtual enviroment
 "Plug 'dpelle/vim-LanguageTool'
 " Plug 'github/copilot.vim'             " Copilot                    
 
@@ -127,7 +123,12 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+let NERDTreeQuitOnOpen=1            " Para cerrar nerdtree
+"AUTOCOMMAND----------------------------------------------------------
+autocmd FileType json setlocal formatprg=jq
 
+"---------------------------------------------------------------------
+"
 " NO tener espefício en GUI ni terminales 256
 hi Normal guibg=NONE ctermbg=NONE   
 " CAMBIA: let s:gb.dark0_hard =[#1d2021] a let s:gb.dark0_hard =[#000000]
@@ -139,7 +140,6 @@ hi Normal guibg=NONE ctermbg=NONE
 "colorscheme tokyonight
 "--------------------Teclas
 
-let NERDTreeQuitOnOpen=1            " Para cerrar nerdtree
 "---------------------------------------------------------------------
 " Show EOL type and last modified timestamp, right after the filename
 set statusline=%f               " filename relative to current $PWD

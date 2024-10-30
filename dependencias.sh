@@ -13,6 +13,11 @@ wget --no-check-certificate https://ftp.vim.org/vim/runtime/spell/es.latin1.sug
 wget --no-check-certificate https://ftp.vim.org/vim/runtime/spell/es.utf-8.spl
 wget --no-check-certificate https://ftp.vim.org/vim/runtime/spell/es.utf-8.sug
 
+#- **fuzzy finder**
+#  - For more information, see: https://github.com/junegunn/fzf
+#  - Para que las búsquedas sean más fáciles
+
+
 #interesante
 # curl -LO https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep_13.0.0_amd64.deb
 # Te descarga un paquete de git hub
@@ -32,4 +37,12 @@ wget --no-check-certificate https://ftp.vim.org/vim/runtime/spell/es.utf-8.sug
 # para lsp arduino
 # go install github.com/arduino/arduino-language-server@latest
 
+# $ sudo apt install fim
 
+# Para $ sudo apt install mupdf
+# Para $ sudo apt install chafa
+
+# Para documentación install:
+# npm -g install tree-sitter-cli 
+# :TSInstall vim
+# :TSInstall vimdoc

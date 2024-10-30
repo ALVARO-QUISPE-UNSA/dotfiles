@@ -136,6 +136,12 @@ export PATH=$PATH:/home/alvaro9rqc/nodejs/bin:/home/alvaro9rqc/.scripts/:/home/a
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/alvaro9rqc/.arduino15/bin
 
+# EDITOR
+export EDITOR='nvim'
 # Turso
 export PATH="$PATH:/home/alvaro9rqc/.turso"
 source ~/.arduino-cli-completion.bash
+
+# Added by nitric binary installer
+export PATH="$HOME/.nitric/bin:$PATH"
+
